@@ -87,53 +87,58 @@ class MailController extends Controller
 
     public function sendEmailProcess(Request $request, $id)
     {
-        $request->validate([
-            'subject' => 'required|string|max:255',
-            'message' => 'required|string',
-            'email_type' => 'required|string|in:plain,form',
-            'attachment' => 'nullable|file|max:5048',
-        ]);
-
-
-        // Handle the file upload
-        $fileName = null;
-        if ($request->hasFile('attachment')) {
-            $fileImage = $request->file('attachment');
-            $fileName = time() . '.' . $fileImage->getClientOriginalExtension();
-            $fileImage->move(public_path('attachments'), $fileName);
-        }
-
-        if ($fileName) {
-            $file = new FileAttachment();
-            $file->file_name = $fileName;
-            $file->save();
-        }
-
-        $mail = RegisteredMail::findOrFail($id);
-        $emailData = [
-            'subject' => $request->subject,
-            'message' => $request->message,
-            'name' => $mail->firstname . ' ' . $mail->lastname,
-            'email' => $mail->email,
-            // 'attachment' => $fileName ?? null,
-            'attachment' => $request->hasFile('attachment') ? asset('attachments/' . $fileName) : null,
-        ];
-
         try {
-            // Determine which email to send based on the selected type
-            if ($request->email_type === 'plain') {
-                // Send plain text email
-                Mail::to($emailData['email'])->send(new PlainTextEmail($emailData));
-            } elseif ($request->email_type === 'form') {
-                // Send form link email
-                Mail::to($emailData['email'])->send(new FormLinkEmail($emailData));
+            $request->validate([
+                'subject' => 'required|string|max:255',
+                'message' => 'required|string',
+                'email_type' => 'required|string|in:plain,form',
+                'attachment' => 'nullable|file|max:5048',
+            ]);
+
+            // Handle the file upload
+            $fileName = null;
+            if ($request->hasFile('attachment')) {
+                $fileImage = $request->file('attachment');
+                $fileName = time() . '.' . $fileImage->getClientOriginalExtension();
+                $fileImage->move(public_path('attachments'), $fileName);
             }
 
-            return redirect()->route('registered-mails.index')->with('success', 'Email sent successfully to ' . $mail->email);
+            if ($fileName) {
+                $file = new FileAttachment();
+                $file->file_name = $fileName;
+                $file->save();
+            }
+
+            $mail = RegisteredMail::findOrFail($id);
+            $emailData = [
+                'subject' => $request->subject,
+                'message' => $request->message,
+                'name' => $mail->firstname . ' ' . $mail->lastname,
+                'email' => $mail->email,
+                'attachment' => $request->hasFile('attachment') ? asset('attachments/' . $fileName) : null,
+            ];
+
+            try {
+                // Determine which email to send based on the selected type
+                if ($request->email_type === 'plain') {
+                    // Send plain text email
+                    Mail::to($emailData['email'])->send(new PlainTextEmail($emailData));
+                } elseif ($request->email_type === 'form') {
+                    // Send form link email
+                    Mail::to($emailData['email'])->send(new FormLinkEmail($emailData));
+                }
+
+                return redirect()->route('registered-mails.index')->with('success', 'Email sent successfully to ' . $mail->email);
+            } catch (\Exception $e) {
+                // Catch mail-sending errors
+                dd('Error in sending email:', $e->getMessage());
+            }
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => 'Failed to send email: ' . $e->getMessage()]);
+            // Catch validation or file upload errors
+            dd('Error in process:', $e->getMessage());
         }
     }
+
 
 
     public function compose_mail()
