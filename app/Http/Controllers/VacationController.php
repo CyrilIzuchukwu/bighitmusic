@@ -3,69 +3,134 @@
 namespace App\Http\Controllers;
 
 use App\Models\PrivateVacation;
+use App\Models\VacationForm;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class VacationController extends Controller
 {
     //
 
-    public function showForm()
+    public function showForm(Request $request)
     {
-        return view('private-vacation');
+        return view('vacation.personal-details');
     }
 
 
-    public function submitForm(Request $request)
+    public function savePersonalDetails(Request $request)
     {
-        $request->validate([
-            'email' => 'required|string|max:255',
+        $validatedData = $request->validate([
+            'email' => 'required|email',
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'gender' => 'required|in:Male,Female,Other',
-            'date_of_birth' => 'required|date',
-            'marital_status' => 'required|string|max:255',
-            'country' => 'required|string|max:255',
-            'airport' => 'required|string|max:255',
-            'meeting_point' => 'required|string|max:255',
-            'vacation_date' => 'required|date',
-            'mobile_number' => 'required|string|max:20',
-            'address' => 'required|string|max:255',
-            'employer' => 'required|string|max:255',
+            'phone' => 'required|string|max:15',
             'occupation' => 'required|string|max:255',
+            'gender' => 'required|string|in:Male,Female,Other',
+            'dob' => 'required|date',
         ]);
 
-        // Store the validated data in the database
-        PrivateVacation::create($request->all());
+        // Save data to session
+        session(['personal_details' => $validatedData]);
 
-        // Prepare email data
-        $emailData = $request->all();
+        // dd(session('personal_details'));
 
-        session(['form_data' => $request->all()]);
-
-        // Send email to ibighitmusic@gmail.com
-        Mail::send('emails.vacation_submission', ['data' => $emailData], function ($message) use ($request) {
-            $message->to('binhyun522@gmail.com')
-                // ->from($request->email)
-                ->subject('New Vacation Form Submission');
-        });
-
-        // Redirect back with a success message
-        return redirect()->route('vacation.form')->with('success', 'Your vacation form has been submitted successfully!');
+        // Redirect to the next step
+        return redirect()->route('form.residential');
     }
 
 
+    public function showResidentialForm()
+    {
+        return view('vacation.residential-details');
+    }
+
+
+    public function saveResidentialDetails(Request $request)
+    {
+        $validatedData = $request->validate([
+            'address' => 'required|string|max:255',
+            'country_of_residence' => 'required|string|max:255',
+        ]);
+
+        // Save data to session
+        session(['residential_details' => $validatedData]);
+
+        // Redirect to the next step
+        return redirect()->route('additional.information');
+    }
+
+
+
+    public function showAdditionalInformation()
+    {
+        return view('vacation.additional-information');
+    }
+
+
+    public function saveAdditionalInformation(Request $request)
+    {
+        // Validate the form input data
+        $validatedData = $request->validate([
+            'meeting_point' => 'required|string|max:255',
+            'airport' => 'required|string|max:255',
+            'vacation_date' => 'required|date',
+        ]);
+
+
+        session(['additional_information' => $validatedData]);
+
+
+        // database
+        $personalDetails = session('personal_details');
+        $residentialDetails = session('residential_details');
+        $additionalInformation = session('additional_information');
+
+        // Format the date of birth using Carbon to ensure it's in the correct format
+        $dob = Carbon::parse($personalDetails['dob'])->format('Y-m-d');
+
+        // Format the vacation date to the correct format as well
+        $vacationDate = Carbon::parse($additionalInformation['vacation_date'])->format('Y-m-d');
+
+
+
+        // Create and save the data to the database
+        $vacationForm = new VacationForm();
+        $vacationForm->email = $personalDetails['email'];
+        $vacationForm->first_name = $personalDetails['first_name'];
+        $vacationForm->last_name = $personalDetails['last_name'];
+        $vacationForm->phone = $personalDetails['phone'];
+        $vacationForm->occupation = $personalDetails['occupation'];
+        $vacationForm->gender = $personalDetails['gender'];
+        $vacationForm->dob = $dob;
+        $vacationForm->address = $residentialDetails['address'];
+        $vacationForm->country_of_residence = $residentialDetails['country_of_residence'];
+        $vacationForm->meeting_point = $additionalInformation['meeting_point'];
+        $vacationForm->airport = $additionalInformation['airport'];
+        $vacationForm->vacation_date = $vacationDate;
+
+        // Save the form to the database
+        $vacationForm->save();
+
+        // Clear all session data
+        session()->flush();
+
+        // Redirect back to the vacation form route with a success message
+        return redirect()->route('vacation.form')->with('message', 'Submitted Successfully');
+    }
+
+    
 
     public function feedbacks()
     {
-        $feedbacks = PrivateVacation::orderBy('created_at', 'desc')->get();
+        $feedbacks = VacationForm::orderBy('created_at', 'desc')->get();
         return view('admin.mail.feedbacks', compact('feedbacks'));
     }
 
 
     public function delete_feedback($id)
     {
-        $data = PrivateVacation::findOrFail($id);
+        $data = VacationForm::findOrFail($id);
         $data->delete();
         return redirect()->back()->with('success', 'Feedback Deleted');
     }
@@ -73,7 +138,7 @@ class VacationController extends Controller
 
     public function feedback_details($id)
     {
-        $feedback = PrivateVacation::findOrFail($id);
+        $feedback = VacationForm::findOrFail($id);
         return view('admin.mail.feedback-details', compact('feedback'));
     }
 }

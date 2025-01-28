@@ -47,9 +47,22 @@ Route::get('/testing1', function () {
 
 
 // Vacation form route
-Route::get('/vacation-form/d/e//viewform', [VacationController::class, 'showForm'])->name('vacation.form');
+Route::get('/vacation-form/d/e/1/personal-details', [VacationController::class, 'showForm'])->name('vacation.form');
+Route::post('/form/personal', [VacationController::class, 'savePersonalDetails'])->name('form.personal');
 
-Route::post('/submit-vacation-form', [VacationController::class, 'submitForm'])->name('vacation.submit');
+
+Route::get('/vacation-form/d/e/2/residential-details', [VacationController::class, 'showResidentialForm'])->name('form.residential');
+Route::post('/form/residential', [VacationController::class, 'saveResidentialDetails'])->name('form.saveResidential');
+
+
+Route::get('/vacation-form/d/e/3/additional-information', [VacationController::class, 'showAdditionalInformation'])->name('additional.information');
+Route::post('/form/additional-information', [VacationController::class, 'saveAdditionalInformation'])->name('form.saveAdditionalInformation');
+
+
+
+
+
+// Route::post('/submit-vacation-form', [VacationController::class, 'submitForm'])->name('vacation.submit');
 
 
 // forget password view

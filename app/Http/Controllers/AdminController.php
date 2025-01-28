@@ -12,8 +12,8 @@ class AdminController extends Controller
     //
     public function admin_dashboard()
     {
-        $lastestFeedbacks = PrivateVacation::orderBy('created_at', 'desc')->take(5)->get();
-        return view('admin.index', compact('lastestFeedbacks'));
+        // $lastestFeedbacks = PrivateVacation::orderBy('created_at', 'desc')->take(5)->get();
+        return view('admin.index');
     }
 
     // profile

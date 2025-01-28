@@ -63,4 +63,8 @@ class PlainTextEmail extends Mailable
     {
         return [];
     }
+
+
+
+
 }

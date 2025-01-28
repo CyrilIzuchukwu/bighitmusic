@@ -13,6 +13,22 @@
 </head>
 
 <style>
+    .download-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 15px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .download-button:hover {
+        background-color: #45a049;
+    }
+
+
+
     .main {
         width: 100%;
         max-width: 700px;
@@ -51,7 +67,7 @@
     }
 </style>
 
-<body style="background: #9568ff1a; padding: 5px 5px;">
+<body style="background: #F3F6CC; padding: 5px 5px;">
     <table class="main" cellpadding="0" cellspacing="0" style="font-family: 'Poppins', sans-serif; margin: 0 auto">
 
         <tr>
@@ -60,155 +76,186 @@
                     <tr>
                         <td style="background-color: #fff;">
                             <span style="position: relative;  width: 100%; height: 170px; border-radius: 10px;">
-                                <img src="https://i.postimg.cc/hj1HKTKj/1.png" alt="Main Image" style="position: relative; width: 100%; height: 100%; border-radius: 10px; object-fit:cover; object-position: center;">
+                                <img src="https://i.postimg.cc/Y908zXcj/1.png" alt="Main Image" style="position: relative; width: 100%; height: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px; object-fit:cover; object-position: center;">
                             </span>
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding: 10px 10px;">
+                        <td style="padding: 10px 10px; padding-bottom: 0px !important;">
 
                             <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
-                                <!-- I'm Power, an A&R representative with Bighit Music. We recently came across your music, and we were captivated by your style.
-                                We think you’d be a great fit for our family of artists and would love to explore working together to bring your music to an even wider audience! -->
                                 {!! $emailData['message'] !!}
                             </p>
                         </td>
                     </tr>
+
+                    <tr>
+                        <td style="padding: 10px; padding-top: 10px;">
+                            <span style="position: relative; width: 100%; height: 260px; border-radius: 10px;">
+                                <img src="https://i.postimg.cc/gc7ytmSy/ezgif-com-optimize.gif" alt="" style="position: relative; width: 100%; height: 100%; border-radius: 10px; object-fit:cover;  object-position: center;">
+                            </span>
+
+                            <p style="margin-top: 15px; font-size: 13px; font-weight: 600; color: #1B1B1B;">It gives us immense pleasure to invite you to access music and the artists you follow through joining a special membership program! There are different levels offered, which allows you to pick the one that best fulfills your enthusiasm and take advantage of exclusive perks. 🌟</p>
+                        </td>
+                    </tr>
                 </table>
             </td>
         </tr>
 
-        <tr style=" width: 100%;">
+
+
+
+        <tr>
             <td align="center" style="padding: 6px 0;">
                 <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
+                    <tr>
+                        <td style="padding: 10px;">
+
+                            <span class="listing" style="padding-top: 18px;">
+                                <span class="list-color" style="display: flex; align-items: start;">
+                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #1B1B1B; margin-bottom: 0px; padding-top:20px">✨ Platinum Member:</span>
+                                </span>
+
+                                <span class="sub-details">
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
+                                        The ultimate experience! 🎉 Enjoy VIP access, backstage passes, exclusive meet-and-greets, private listening parties, and limited-edition merch.
+                                    </p>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td align="center" style="padding: 6px 0;">
+                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
+                    <tr>
+                        <td style="padding: 10px;">
+                            <span class="listing" style="margin-top: 18px;">
+                                <span class="list-color" style="display: flex; align-items: start;">
+
+                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #1B1B1B; margin-bottom: 0px;">💛 Gold Member</span>
+                                </span>
+
+                                <span class="sub-details">
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
+                                        Get priority access to tickets, exclusive event invites, private group chats with artists, and premium discounts.
+                                    </p>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td align="center" style="padding: 6px 0;">
+                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
+                    <tr>
+                        <td style="padding: 10px;">
+                            <span class="listing" style="margin-top: 18px;">
+                                <span class="list-color" style="display: flex; align-items: start;">
+
+                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #1B1B1B; margin-bottom: 0px;">⚪ Silver Member</span>
+                                </span>
+
+                                <span class="sub-details">
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
+                                        Early access to ticket sales, merch discounts, and exclusive virtual events.
+                                    </p>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td align="center" style="padding: 6px 0;">
+                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
+                    <tr>
+                        <td style="padding: 10px;">
+                            <span class="listing" style="margin-top: 18px;">
+                                <span class="list-color" style="display: flex; align-items: start;">
+
+                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #1B1B1B; margin-bottom: 0px;">🥉 Bronze Member</span>
+                                </span>
+
+                                <span class="sub-details">
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
+                                        Get discounts, fan-only content, and first updates on new releases – perfect for any fan!
+                                    </p>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td align="center" style="padding: 6px 0;">
+                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
+                    <tr>
+                        <td style="padding: 10px;">
+                            <span class="listing" style="margin-top: 18px;">
+                                <span class="list-color" style="display: flex; align-items: start;">
+
+                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #1B1B1B; margin-bottom: 0px;">🏆 Elite Member</span>
+                                </span>
+
+                                <span class="sub-details">
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
+                                        Stand out with signed items, virtual meet-and-greets, and exclusive artist content.
+                                    </p>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td align="center" style="padding: 6px 0;">
+                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
+                    <tr>
+                        <td style="padding: 10px;">
+                            <span class="listing" style="margin-top: 18px;">
+                                <span class="list-color" style="display: flex; align-items: start;">
+
+                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #1B1B1B; margin-bottom: 0px;">📬 Standard Member</span>
+                                </span>
+
+                                <span class="sub-details">
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
+                                        Stay connected with early updates on releases, member-only news, and discounts.
+                                    </p>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+
                     <tr>
                         <td style="padding: 10px;">
                             <span style="position: relative; width: 100%; height: 260px; border-radius: 10px;">
-                                <!-- <img src="https://i.postimg.cc/NG4y5jD2/2.png" alt="" style="position: relative; width: 100%; height: 100%; border-radius: 10px; object-fit:cover;  object-position: center;"> -->
-
-                                <img src="https://i.postimg.cc/3wpS2t6r/gif.gif" alt="" style="position: relative; width: 100%; height: 100%; border-radius: 10px; object-fit:cover;  object-position: center;">
+                                <img src="https://i.postimg.cc/FH5zV2Qn/standard.png" alt="" style="position: relative; width: 100%; height: 100%; border-radius: 10px; object-fit:cover;  object-position: center;">
                             </span>
 
-                            <p style="margin-top: 15px; font-size: 13px; font-weight: 600; color: #1B1B1B;">#CatchTheVibe!💜</p>
                         </td>
                     </tr>
+
                 </table>
             </td>
         </tr>
 
-
-        <tr>
-            <td align="center" style="padding: 6px 0;">
-                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
-                    <tr>
-                        <td style="padding: 10px;">
-                            <span style=" position: relative; width: 100%; height: 120px; border-radius: 10px;">
-                                <img src="https://i.postimg.cc/D0MnLHmH/3.png" alt="" style="position: relative; width: 100%; height: 100%; border-radius: 10px; object-fit:cover;  object-position: center;">
-                            </span>
-                            <span class="listing" style="padding-top: 18px;">
-                                <span class="list-color" style="display: flex; align-items: start;">
-                                    <span
-                                        style=" font-size: 14px; font-weight: 600; text-align: left; color: #8C3CDF; margin-bottom: 0px; padding-top:20px">
-                                        1.
-                                    </span>
-                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #8C3CDF; margin-bottom: 0px; padding-top:20px">Own a Piece of the Future of Music!</span>
-                                </span>
-
-                                <span class="sub-details">
-                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
-                                        Become a shareholder in our thriving record label and join a select group of visionary investors. Each <b>$150,000</b> share offers you exclusive ownership, the potential for significant dividends, and a stake in shaping the music industry.
-                                        Secure your premium stake today—opportunities like this are rare!
-                                    </p>
-                                </span>
-                            </span>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-
-
-        <tr>
-            <td align="center" style="padding: 6px 0;">
-                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
-                    <tr>
-                        <td style="padding: 10px;">
-                            <span class="listing" style="margin-top: 18px;">
-                                <span class="list-color" style="display: flex; align-items: start;">
-                                    <span
-                                        style=" font-size: 14px; font-weight: 600; text-align: left; color: #8C3CDF; margin-bottom: 0px;">
-                                        2.
-                                    </span>
-                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #8C3CDF; margin-bottom: 0px;">Learn Studio Production with RM</span>
-                                </span>
-
-                                <span class="sub-details">
-                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
-                                        Turn your passion for music into a career! Join our hands-on training, led by renowned producer RM, and master professional music production techniques.
-
-                                        Don’t miss this chance to learn from the best. Limited slots available—secure yours today!
-                                    </p>
-
-                                    <span style="display: block; padding-left: 10px;">
-                                        <ul style="padding-left: 15px;">
-                                            <li><span style="font-size: 13px; font-weight: 500; display:block; color: #8C3CDF;">Basic Course (3 weeks): <span style="color: #1B1B1B;">$35,000</span></span></li>
-                                            <li><span style="font-size: 13px; font-weight: 500; display:block; color: #8C3CDF;">Advanced Course (6 weeks): <span style="color: #1B1B1B;">$60,000</span></span></li>
-                                        </ul>
-                                    </span>
-
-                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">Don’t miss this chance to learn from the best. Limited slots available—secure yours today!</p>
-
-                                </span>
-                            </span>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-
-        <tr>
-            <td align=" center" style="padding: 6px 0;">
-                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
-                    <tr>
-                        <td style="padding: 10px;">
-                            <span class="listing" style="margin-top: 18px;">
-                                <span class="list-color" style="display: flex; align-items: start;">
-                                    <span
-                                        style=" font-size: 14px; font-weight: 600; text-align: left; color: #8C3CDF; margin-bottom: 0px;">
-                                        3.
-                                    </span>
-                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #8C3CDF; margin-bottom: 0px;">Promote Your Brand with BTS Artist Support</span>
-                                </span>
-
-                                <span class="sub-details">
-                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
-                                        Elevate your visibility and grow your business with tailored promotion strategies, featuring Social Media Shoutouts by BTS Artist
-                                    </p>
-
-                                    <span style="display: block; padding-left: 5px;">
-                                        <ul style="list-style-type: disc !important;">
-                                            <li style="text-align: left;">
-                                                <span style="font-size: 13px; font-weight: 500; display:block; color: #8C3CDF;">Shoutouts
-                                                    <span style="color: #1B1B1B;">From $30,000</span>
-                                                </span>
-                                            </li>
-                                            <li style="text-align: left;">
-                                                <span style="font-size: 13px; font-weight: 500; display:block; color: #8C3CDF;">Brand Promotion Package
-                                                    <span style="color: #1B1B1B;">$50,000 (includes additional options—email us for details)</span>
-                                                </span>
-                                            </li>
-                                        </ul>
-                                    </span>
-
-                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">Leverage this unique opportunity to grow your brand with a global icon. Secure your spot today!</p>
-
-                                </span>
-                            </span>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
 
         <tr>
             <td style="padding: 6px 0px;">
@@ -222,23 +269,23 @@
                                             <tr>
                                                 <td>
                                                     <a href="https://x.com/bts_bighit" target="_blank">
-                                                        <img style="width: 24px;" src="https://i.postimg.cc/Gh2C5HdR/twitter.png" alt="Twitter">
+                                                        <img style="width: 24px;" src="https://i.postimg.cc/G2j4Szbn/x.png" alt="Twitter">
                                                     </a>
                                                 </td>
                                                 <td style="padding-left: 10px;">
                                                     <a href="https://www.instagram.com/bts.bighitofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
-                                                        <img style="width: 24px;" src="https://i.postimg.cc/ZRBfNzh1/instagram.png" alt="Instagram">
+                                                        <img style="width: 24px;" src="https://i.postimg.cc/W1nbVzQ0/instagram.png" alt="Instagram">
                                                     </a>
                                                 </td>
 
                                                 <td style="padding-left: 10px;">
                                                     <a href="https://youtube.com/@BTS" target="_blank">
-                                                        <img style="width: 24px;" src="https://i.postimg.cc/d1yB1R2F/youtube.png" alt="YouTube">
+                                                        <img style="width: 24px;" src="https://i.postimg.cc/Vv1Vzsyb/youtube.png" alt="YouTube">
                                                     </a>
                                                 </td>
                                                 <td style="padding-left: 10px;">
                                                     <a href="https://facebook.com/bangtan.official" target="_blank">
-                                                        <img style="width: 24px;" src="https://i.postimg.cc/MKMQ8ZYk/facebook.png" alt="Facebook">
+                                                        <img style="width: 24px;" src="https://i.postimg.cc/J06cSRR8/facebook.png" alt="Facebook">
                                                     </a>
                                                 </td>
                                             </tr>
@@ -253,21 +300,21 @@
                     <tr>
                         <td>
                             <p style="font-size: 13px; font-weight: 400; line-height: 35px; text-align: left; color: #707070; margin-block: 0px; margin-top: 15px;">
-                                © 2024 BTS Records. All rights reserved.
+                                © 2024 Bighit Music. All rights reserved.
                             </p>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <p style="font-size: 13px; font-weight: 400; text-align:  left; color: #707070; margin-block: 0px; line-height: 23px;">
-                                Music and entertainment services offered by BTS Records. We are dedicated to supporting and promoting artists across various genres. All rights and content related to BTS Records and its artists are protected under copyright laws.
+                                Music and entertainment services offered by Bighit Music. We are dedicated to supporting and promoting artists across various genres. All rights and content related to BTS Records and its artists are protected under copyright laws.
                             </p>
                         </td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; text-align: center;">
                             <span style="display: block; text-align: center;">
-                                <img src="https://i.postimg.cc/9f61PqMp/logo.png" style=" width: 30px" alt="Logo">
+                                <img src="https://i.postimg.cc/mZd1GXWm/bighitlogo.png" style=" width: 70px" alt="Logo">
                             </span>
                         </td>
                     </tr>
@@ -275,11 +322,11 @@
             </td>
         </tr>
 
-        <tr>
-            <td class="footer" style="background-color: #f3ebf6; padding: 20px; text-align: center; font-size: 14px; color: #888888;">
-                <p>BigHit Music | All rights reserved | 1234 K-Pop St., Seoul, South Korea</p>
-            </td>
-        </tr>
+        @if ($emailData['attachment'])
+        <a href="{{ $emailData['attachment'] }}" class="download-button" download>Download Attachment</a>
+        @endif
+
+
 
     </table>
 </body>

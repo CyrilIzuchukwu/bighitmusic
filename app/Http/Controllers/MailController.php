@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\FormLinkEmail;
 use App\Mail\PlainTextEmail;
 use App\Mail\RegisteredMailNotification;
+use App\Models\FileAttachment;
 use App\Models\PrivateVacation;
 use App\Models\RegisteredMail;
 use Illuminate\Http\Request;
@@ -90,27 +91,48 @@ class MailController extends Controller
             'subject' => 'required|string|max:255',
             'message' => 'required|string',
             'email_type' => 'required|string|in:plain,form',
+            'attachment' => 'nullable|file|max:5048',
         ]);
 
-        $mail = RegisteredMail::findOrFail($id);
 
+        // Handle the file upload
+        $fileName = null;
+        if ($request->hasFile('attachment')) {
+            $fileImage = $request->file('attachment');
+            $fileName = time() . '.' . $fileImage->getClientOriginalExtension();
+            $fileImage->move(public_path('attachments'), $fileName);
+        }
+
+        if ($fileName) {
+            $file = new FileAttachment();
+            $file->file_name = $fileName;
+            $file->save();
+        }
+
+        $mail = RegisteredMail::findOrFail($id);
         $emailData = [
             'subject' => $request->subject,
             'message' => $request->message,
             'name' => $mail->firstname . ' ' . $mail->lastname,
             'email' => $mail->email,
+            // 'attachment' => $fileName ?? null,
+            'attachment' => $request->hasFile('attachment') ? asset('attachments/' . $fileName) : null,
         ];
 
-        // Determine which email to send based on the selected type
-        if ($request->email_type === 'plain') {
-            // Send plain text email
-            Mail::to($emailData['email'])->send(new PlainTextEmail($emailData));
-        } elseif ($request->email_type === 'form') {
-            // Send form link email
-            Mail::to($emailData['email'])->send(new FormLinkEmail($emailData));
-        }
+        try {
+            // Determine which email to send based on the selected type
+            if ($request->email_type === 'plain') {
+                // Send plain text email
+                Mail::to($emailData['email'])->send(new PlainTextEmail($emailData));
+            } elseif ($request->email_type === 'form') {
+                // Send form link email
+                Mail::to($emailData['email'])->send(new FormLinkEmail($emailData));
+            }
 
-        return redirect()->route('registered-mails.index')->with('success', 'Email sent successfully to ' . $mail->email);
+            return redirect()->route('registered-mails.index')->with('success', 'Email sent successfully to ' . $mail->email);
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Failed to send email: ' . $e->getMessage()]);
+        }
     }
 
 

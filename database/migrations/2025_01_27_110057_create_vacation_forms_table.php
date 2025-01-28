@@ -11,23 +11,27 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('private_vacations', function (Blueprint $table) {
+        Schema::create('vacation_forms', function (Blueprint $table) {
             $table->id();
+
+            // Step 1: Personal details
             $table->string('email');
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('phone');
+            $table->string('occupation')->nullable();
             $table->enum('gender', ['Male', 'Female', 'Other']);
-            $table->date('date_of_birth');
-            $table->string('marital_status');
-            $table->string('country');
-            $table->string('airport');
+            $table->date('dob');
+
+            // Step 2: Residential details
+            $table->text('address');
+            $table->string('country_of_residence');
+
+            // Step 3: Additional information
             $table->string('meeting_point');
+            $table->string('airport');
             $table->date('vacation_date');
-            $table->string('mobile_number');
-            $table->string('address');
-            $table->string('employer');
-            $table->string('occupation');
-            $table->string('status')->nullable();
+
             $table->timestamps();
         });
     }
@@ -37,6 +41,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('private_vacations');
+        Schema::dropIfExists('vacation_forms');
     }
 };

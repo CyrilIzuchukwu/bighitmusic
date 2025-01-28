@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\PrivateVacation;
 use App\Models\RegisteredMail;
+use App\Models\VacationForm;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -28,8 +29,8 @@ class AppServiceProvider extends ServiceProvider
             $view->with('mailCount', $mailCount);
 
 
-            $feedBackCount = PrivateVacation::count();
-            $view->with('feedBackCount', $feedBackCount);
+            $feedbackCount = VacationForm::count();
+            $view->with('feedbackCount', $feedbackCount);
         });
     }
 }

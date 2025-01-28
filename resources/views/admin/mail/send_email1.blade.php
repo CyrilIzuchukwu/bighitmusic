@@ -13,7 +13,7 @@
                                 <div class="compose-wrapper " id="compose-content">
 
                                     <div class="compose-content">
-                                        <form action="{{ route('registered-mails.sendEmailProcess', $mail->id) }}" method="POST">
+                                        <form action="{{ route('registered-mails.sendEmailProcess', $mail->id) }}" method="POST" enctype="multipart/form-data">
                                             @csrf
 
 
@@ -49,8 +49,16 @@
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Message</label>
                                                 <textarea id="summernote" name="message" class=" form-control bg-transparent" rows="5" placeholder="Enter text ...">{{ old('message') }}</textarea>
-                                                
+
                                                 @error('message')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="attachment" class="form-label">Attach Document</label>
+                                                <input type="file" class="form-control" name="attachment" id="attachment" accept=".pdf,.doc,.docx,.jpg,.png">
+                                                @error('attachment')
                                                 <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>

@@ -26,13 +26,13 @@
                                         {{ $feedback->first_name }} {{ $feedback->last_name }}
                                     </td>
                                     <td class="py-2">{{ $feedback->email }}</td>
-                                    <td class="py-2">{{ $feedback->mobile_number }}
+                                    <td class="py-2">{{ $feedback->phone }}
                                     </td>
 
                                     <td class="py-2">{{ $feedback->gender }}
                                     </td>
 
-                                    <td class="py-2">{{ $feedback->country }}
+                                    <td class="py-2">{{ $feedback->country_of_residence }}
                                     </td>
 
                                     <td class="py-2 text-end">

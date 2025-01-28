@@ -15,7 +15,7 @@
         </div>
         <div class="col-sm-6 mb-3">
             <label class="form-label">Mobile Number</label>
-            <input type="text" class="form-control" value="{{ $feedback->mobile_number }}" readonly>
+            <input type="text" class="form-control" value="{{ $feedback->phone }}" readonly>
         </div>
         <div class="col-sm-6 mb-3">
             <label class="form-label">Gender</label>
@@ -26,13 +26,13 @@
             <input type="text" class="form-control"
                 value="{{ \Carbon\Carbon::parse($feedback->date_of_birth)->format('d F Y') }}" readonly>
         </div>
-        <div class="col-sm-6 mb-3">
+        <!-- <div class="col-sm-6 mb-3">
             <label class="form-label">Marital Status</label>
             <input type="text" class="form-control" value="{{ $feedback->marital_status }}" readonly>
-        </div>
+        </div> -->
         <div class="col-sm-6 mb-3">
             <label class="form-label">Country</label>
-            <input type="text" class="form-control" value="{{ $feedback->country }}" readonly>
+            <input type="text" class="form-control" value="{{ $feedback->country_of_residence }}" readonly>
         </div>
         <div class="col-sm-6 mb-3">
             <label class="form-label">Airport</label>
@@ -49,10 +49,10 @@
         </div>
 
 
-        <div class="col-sm-6 mb-3">
+        <!-- <div class="col-sm-6 mb-3">
             <label class="form-label">Employer</label>
             <input type="text" class="form-control" value="{{ $feedback->employer }}" readonly>
-        </div>
+        </div> -->
         <div class="col-sm-6 mb-3">
             <label class="form-label">Occupation</label>
             <input type="text" class="form-control" value="{{ $feedback->occupation }}" readonly>

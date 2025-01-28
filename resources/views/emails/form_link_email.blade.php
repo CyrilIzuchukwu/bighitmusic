@@ -48,7 +48,7 @@
     }
 </style>
 
-<body style="background: #9568ff1a; padding: 5px 5px;">
+<body style="background: #F3F6CC; padding: 5px 5px;">
     <table class="main" cellpadding="0" cellspacing="0" style="font-family: 'Poppins', sans-serif; margin: 0 auto">
 
         <tr>
@@ -57,12 +57,12 @@
                     <tr>
                         <td style="background-color: #fff;">
                             <span style="position: relative;  width: 100%; height: 170px; border-radius: 10px;">
-                                <img src="https://i.postimg.cc/hj1HKTKj/1.png" alt="Main Image" style="position: relative; width: 100%; height: 100%; border-radius: 10px; object-fit:cover; object-position: center;">
+                                <img src="https://i.postimg.cc/Y908zXcj/1.png" alt="Main Image" style="position: relative; width: 100%; height: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px; object-fit:cover; object-position: center;">
                             </span>
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding: 10px 10px;">
+                        <td style="padding: 10px 10px; padding-top: 0px !important;">
                             <br>
                             <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
                                 {!! $emailData['message'] !!}
@@ -73,16 +73,24 @@
                             </p>
 
                             <span style="display: block; margin-top: 20px">
-                                <a style="background: #8C3CDF; text-align: center; color: #fff; padding: 8px 20px; text-decoration: none;" href="{{ route('vacation.form') }}" target="_blank">Fill out the form</a>
+                                <a style="background: #F5FF00; text-align: center; color: #1B1B1B; padding: 8px 20px; text-decoration: none; font-weight: 600;" href="{{ route('vacation.form') }}" target="_blank">Fill out the form</a>
                             </span>
+
+                            <br>
+                            <br>
+
+                            <span style="position: relative; width: 100%; height: 260px; border-radius: 10px; padding-top: 10px !important; margin-top: 20px ;">
+                                <img src="https://i.postimg.cc/gc7ytmSy/ezgif-com-optimize.gif" alt="" style="position: relative; width: 100%; height: 100%; border-radius: 10px; object-fit:cover;  object-position: center;">
+                            </span>
+
 
                             <p style=" margin-top: 15px; color: #1B1B1B; font-size: 13px; line-height: 1.55;">
                                 Thank you for your time and cooperation! If you have any questions, feel free to reach out.
                             </p>
 
-                            <p style="margin-bottom: 20px; margin-top: 15px; color: #1B1B1B; font-size: 13px; line-height: 1.55;">
-                                Best regards <br>
-                                TEAM BTS
+                            <p style="margin-bottom: 20px; margin-top: 15px; color: #1B1B1B; font-size: 13px; line-height: 1.55; font-weight: 600;">
+                                Best regards, <br>
+                                TEAM Bighit Music
                             </p>
                         </td>
                     </tr>
@@ -90,27 +98,10 @@
             </td>
         </tr>
 
-        <tr style="width: 100%;">
-            <td align="center" style="padding: 6px 0;">
-                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
-                    <tr>
-                        <td style="padding: 10px;">
-                            <span style="position: relative; width: 100%; height: 260px; border-radius: 10px;">
-                                <img src="https://i.postimg.cc/3wpS2t6r/gif.gif" alt="" style="position: relative; width: 100%; height: 100%; border-radius: 10px; object-fit:cover;  object-position: center;">
-                            </span>
-
-                            <p style="margin-top: 15px; font-size: 13px; font-weight: 600; color: #1B1B1B;">#CatchTheVibe!💜</p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-
-
 
         <tr>
             <td style="padding: 6px 0px;">
-                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; padding: 10px;">
+                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 0px; overflow: hidden; padding: 10px;">
                     <tr>
                         <td>
                             <table style="width: 100%;">
@@ -120,23 +111,23 @@
                                             <tr>
                                                 <td>
                                                     <a href="https://x.com/bts_bighit" target="_blank">
-                                                        <img style="width: 24px;" src="https://i.postimg.cc/Gh2C5HdR/twitter.png" alt="Twitter">
+                                                        <img style="width: 24px;" src="https://i.postimg.cc/G2j4Szbn/x.png" alt="Twitter">
                                                     </a>
                                                 </td>
                                                 <td style="padding-left: 10px;">
                                                     <a href="https://www.instagram.com/bts.bighitofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
-                                                        <img style="width: 24px;" src="https://i.postimg.cc/ZRBfNzh1/instagram.png" alt="Instagram">
+                                                        <img style="width: 24px;" src="https://i.postimg.cc/W1nbVzQ0/instagram.png" alt="Instagram">
                                                     </a>
                                                 </td>
 
                                                 <td style="padding-left: 10px;">
                                                     <a href="https://youtube.com/@BTS" target="_blank">
-                                                        <img style="width: 24px;" src="https://i.postimg.cc/d1yB1R2F/youtube.png" alt="YouTube">
+                                                        <img style="width: 24px;" src="https://i.postimg.cc/Vv1Vzsyb/youtube.png" alt="YouTube">
                                                     </a>
                                                 </td>
                                                 <td style="padding-left: 10px;">
                                                     <a href="https://facebook.com/bangtan.official" target="_blank">
-                                                        <img style="width: 24px;" src="https://i.postimg.cc/MKMQ8ZYk/facebook.png" alt="Facebook">
+                                                        <img style="width: 24px;" src="https://i.postimg.cc/J06cSRR8/facebook.png" alt="Facebook">
                                                     </a>
                                                 </td>
                                             </tr>
@@ -151,21 +142,21 @@
                     <tr>
                         <td>
                             <p style="font-size: 13px; font-weight: 400; line-height: 35px; text-align: left; color: #707070; margin-block: 0px; margin-top: 15px;">
-                                © 2024 BTS Records. All rights reserved.
+                                © 2024 Bighit Music. All rights reserved.
                             </p>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <p style="font-size: 13px; font-weight: 400; text-align:  left; color: #707070; margin-block: 0px; line-height: 23px;">
-                                Music and entertainment services offered by BTS Records. We are dedicated to supporting and promoting artists across various genres. All rights and content related to BTS Records and its artists are protected under copyright laws.
+                                Music and entertainment services offered by Bighit Music. We are dedicated to supporting and promoting artists across various genres. All rights and content related to BTS Records and its artists are protected under copyright laws.
                             </p>
                         </td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; text-align: center;">
                             <span style="display: block; text-align: center;">
-                                <img src="https://i.postimg.cc/9f61PqMp/logo.png" style=" width: 30px" alt="Logo">
+                                <img src="https://i.postimg.cc/mZd1GXWm/bighitlogo.png" style=" width: 70px" alt="Logo">
                             </span>
                         </td>
                     </tr>
@@ -173,11 +164,6 @@
             </td>
         </tr>
 
-        <tr>
-            <td class="footer" style="background-color: #f3ebf6; padding: 20px; text-align: center; font-size: 14px; color: #888888;">
-                <p>BigHit Music | All rights reserved | 1234 K-Pop St., Seoul, South Korea</p>
-            </td>
-        </tr>
 
     </table>
 </body>
