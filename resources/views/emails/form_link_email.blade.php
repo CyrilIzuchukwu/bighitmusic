@@ -53,11 +53,11 @@
 
         <tr>
             <td align="center" style="padding: 6px 0;">
-                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden;">
+                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px;  overflow: hidden;">
                     <tr>
                         <td style="background-color: #fff;">
                             <span style="position: relative;  width: 100%; height: 170px; border-radius: 10px;">
-                                <img src="https://i.postimg.cc/Y908zXcj/1.png" alt="Main Image" style="position: relative; width: 100%; height: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px; object-fit:cover; object-position: center;">
+                                <img src="https://res.cloudinary.com/dpfcntrwo/image/upload/v1738226534/1_diezos.png" alt="Main Image" style="position: relative; width: 100%; height: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px; object-fit:cover; object-position: center;">
                             </span>
                         </td>
                     </tr>
@@ -80,7 +80,7 @@
                             <br>
 
                             <span style="position: relative; width: 100%; height: 260px; border-radius: 10px; padding-top: 10px !important; margin-top: 20px ;">
-                                <img src="https://i.postimg.cc/gc7ytmSy/ezgif-com-optimize.gif" alt="" style="position: relative; width: 100%; height: 100%; border-radius: 10px; object-fit:cover;  object-position: center;">
+                                <img src="https://res.cloudinary.com/dpfcntrwo/image/upload/v1738227670/ezgif.com-optimize_nn1ic5.gif" alt="" style="position: relative; width: 100%; height: 100%; border-radius: 10px; object-fit:cover;  object-position: center;">
                             </span>
 
 
@@ -111,23 +111,23 @@
                                             <tr>
                                                 <td>
                                                     <a href="https://x.com/bts_bighit" target="_blank">
-                                                        <img style="width: 24px;" src="https://i.postimg.cc/G2j4Szbn/x.png" alt="Twitter">
+                                                        <img style="width: 24px;" src="https://res.cloudinary.com/dpfcntrwo/image/upload/v1738227911/x_qunpkn.png" alt="Twitter">
                                                     </a>
                                                 </td>
                                                 <td style="padding-left: 10px;">
                                                     <a href="https://www.instagram.com/bts.bighitofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
-                                                        <img style="width: 24px;" src="https://i.postimg.cc/W1nbVzQ0/instagram.png" alt="Instagram">
+                                                        <img style="width: 24px;" src="https://res.cloudinary.com/dpfcntrwo/image/upload/v1738227931/instagram_rtsgxk.png" alt="Instagram">
                                                     </a>
                                                 </td>
 
                                                 <td style="padding-left: 10px;">
                                                     <a href="https://youtube.com/@BTS" target="_blank">
-                                                        <img style="width: 24px;" src="https://i.postimg.cc/Vv1Vzsyb/youtube.png" alt="YouTube">
+                                                        <img style="width: 24px;" src="https://res.cloudinary.com/dpfcntrwo/image/upload/v1738227947/youtube_qt24u1.png" alt="YouTube">
                                                     </a>
                                                 </td>
                                                 <td style="padding-left: 10px;">
                                                     <a href="https://facebook.com/bangtan.official" target="_blank">
-                                                        <img style="width: 24px;" src="https://i.postimg.cc/J06cSRR8/facebook.png" alt="Facebook">
+                                                        <img style="width: 24px;" src="https://res.cloudinary.com/dpfcntrwo/image/upload/v1738227964/facebook_hobqe9.png" alt="Facebook">
                                                     </a>
                                                 </td>
                                             </tr>
@@ -156,7 +156,7 @@
                     <tr>
                         <td style="padding: 10px; text-align: center;">
                             <span style="display: block; text-align: center;">
-                                <img src="https://i.postimg.cc/mZd1GXWm/bighitlogo.png" style=" width: 70px" alt="Logo">
+                                <img src="https://res.cloudinary.com/dpfcntrwo/image/upload/v1738227978/bighitlogo_sj4jyr.png" style=" width: 70px" alt="Logo">
                             </span>
                         </td>
                     </tr>

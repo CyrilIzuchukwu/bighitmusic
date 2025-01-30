@@ -54,6 +54,14 @@
                                                 @enderror
                                             </div>
 
+                                            <div class="mb-3">
+                                                <label for="attachment" class="form-label">Attach Document</label>
+                                                <input type="file" class="form-control" name="attachment" id="attachment" accept=".pdf,.doc,.docx,.jpg,.png">
+                                                @error('attachment')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+
                                             <div class="text-start mt-4 mb-3">
                                                 <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span class="me-2"><i class="fa fa-paper-plane"></i></span>Send Email</button>
                                             </div>

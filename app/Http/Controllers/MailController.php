@@ -131,11 +131,13 @@ class MailController extends Controller
                 return redirect()->route('registered-mails.index')->with('success', 'Email sent successfully to ' . $mail->email);
             } catch (\Exception $e) {
                 // Catch mail-sending errors
-                dd('Error in sending email:', $e->getMessage());
+                return redirect()->back()->with('error', $e->getMessage());
+                // dd('Error in sending email:', $e->getMessage());
             }
         } catch (\Exception $e) {
             // Catch validation or file upload errors
-            dd('Error in process:', $e->getMessage());
+            return redirect()->back()->with('error', $e->getMessage());
+            // dd('Error in process:', $e->getMessage());
         }
     }
 
@@ -155,7 +157,24 @@ class MailController extends Controller
             'subject' => 'required|string|max:255',
             'message' => 'required|string',
             'email_type' => 'required|string|in:plain,form',
+            'attachment' => 'nullable|file|max:5048',
         ]);
+
+
+        // Handle the file upload
+        $fileName = null;
+        if ($request->hasFile('attachment')) {
+            $fileImage = $request->file('attachment');
+            $fileName = time() . '.' . $fileImage->getClientOriginalExtension();
+            $fileImage->move(public_path('attachments'), $fileName);
+        }
+
+        if ($fileName) {
+            $file = new FileAttachment();
+            $file->file_name = $fileName;
+            $file->save();
+        }
+
 
         $emailData = [
             'subject' => $request->subject,
