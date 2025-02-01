@@ -136,7 +136,7 @@ body {
 
 .sidebar {
     flex: 1;
-    background-color: #F3F6CC;
+    background-color: #F4ECFC;
     padding: 40px;
     display: flex;
     justify-content: center;
@@ -281,16 +281,16 @@ body {
 
 .main-form form input:focus,
 .main-form form select:focus {
-    border: 1px solid #F3F6CC;
+    border: 1px solid #F4ECFC;
     box-shadow: none;
 }
 
 
 .main-form form .submit-btn {
-    background: #F5FF00;
+    background: #8C3CDF;
     padding: 15px 30px;
     border-radius: 10px;
-    color: #1B1B1B;
+    color: #fff;
     font-family: Onest;
     font-size: 16px;
     font-weight: 500;
@@ -313,7 +313,7 @@ body {
 
 .attention h2 {
     text-align: center;
-    color: #E2951A;
+    color: #F72D2D;
     font-size: 18px;
     font-weight: 500;
     line-height: 15.5px;
@@ -344,7 +344,7 @@ body {
 
     .sidebar {
         flex: 1;
-        background-color: #F3F6CC;
+        background-color: #F4ECFC;
         padding: 10px 20px;
         display: flex;
         justify-content: center;
@@ -480,16 +480,16 @@ body {
 
     .main-form form input:focus,
     .main-form form select:focus {
-        border: 1px solid #F3F6CC;
+        border: 1px solid #F4ECFC;
         box-shadow: none;
     }
 
 
     .main-form form .submit-btn {
-        background: #F5FF00;
+        background: #8C3CDF;
         padding: 15px 30px;
         border-radius: 10px;
-        color: #1B1B1B;
+        color: #fff;
         font-family: Onest;
         font-size: 16px;
         font-weight: 500;

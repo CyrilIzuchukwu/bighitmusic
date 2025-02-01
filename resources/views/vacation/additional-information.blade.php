@@ -139,7 +139,7 @@
 
 <style>
     .information {
-        color: #F10C0C;
+        color: #E2951A;
         font-family: Onest;
         font-size: 10px;
         font-weight: 400;
