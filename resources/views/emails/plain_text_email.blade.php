@@ -246,7 +246,7 @@
 
         <tr>
             <td align="center" style="padding: 6px 0;">
-                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
+                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden !important; ">
                     <tr>
                         <td style="padding: 10px;">
                             <span class="listing" style="margin-top: 18px;">
