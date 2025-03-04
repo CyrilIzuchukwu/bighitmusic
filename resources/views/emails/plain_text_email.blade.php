@@ -95,7 +95,7 @@
                                 <img src="https://res.cloudinary.com/dpfcntrwo/image/upload/v1738227670/ezgif.com-optimize_nn1ic5.gif" alt="" style="position: relative; max-width: 100%; max-height: 260px !important; border-radius: 10px; object-fit:cover;  object-position: center;">
                             </span>
 
-                            <p style="margin-top: 15px; font-size: 13px; font-weight: 600; color: #1B1B1B;">It gives us immense pleasure to invite you to access music and the artists you follow through joining a special membership program! There are different levels offered, which allows you to pick the one that best fulfills your enthusiasm and take advantage of exclusive perks. 🌟</p>
+                            <p style="margin-top: 15px; font-size: 13px; line-height: 20px; font-weight: 400; color: #1B1B1B;">It gives us immense pleasure to invite you to access music and the artists you follow through joining a special membership program! There are different levels offered, which allows you to pick the one that best fulfills your enthusiasm and take advantage of exclusive perks. 🌟</p>
                         </td>
                     </tr>
                 </table>
@@ -110,15 +110,89 @@
                 <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
                     <tr>
                         <td style="padding: 10px;">
-
                             <span class="listing" style="padding-top: 18px;">
+                                <span class="sub-details" style="padding-top: 18px; text-align: center;">
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 600;  text-align: center !important; line-height: 18px;">
+                                        At BIGHIT, our mission is built on three core pillars that set us apart in the industry:
+                                    </p>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td align="center" style="padding: 6px 0;">
+                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
+                    <tr>
+                        <td style="padding: 10px;">
+                            <span class="listing" style="margin-top: 18px;">
                                 <span class="list-color" style="display: flex; align-items: start;">
-                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #1B1B1B; margin-bottom: 0px; padding-top:20px">✨ Platinum Member:</span>
+                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #1B1B1B; margin-bottom: 0px;">🎤 1. Discovering Talent</span>
+                                </span>
+
+                                <span class="sub-details" style="margin-top: 15px;">
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; margin-left: 5px; line-height: 20px;">
+                                        🌟 We believe great music starts with extraordinary talent. Our dedicated team scouts emerging artists from diverse backgrounds, prioritizing uniqueness, creativity, and authenticity.
+                                    </p>
+                                </span>
+
+                                <span class="sub-details" style="margin-top: 15px;">
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; margin-left: 5px; line-height: 20px;">
+                                        🔍 We connect with grassroots communities, music festivals, and digital platforms to uncover hidden gems.
+                                    </p>
                                 </span>
 
                                 <span class="sub-details">
-                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
-                                        The ultimate experience! 🎉 Enjoy VIP access, backstage passes, exclusive meet-and-greets, private listening parties, and limited-edition merch.
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; margin-left: 5px; line-height: 20px;">
+                                        🏆 Artists discovered by us have gone on to achieve commercial success and critical acclaim, gaining recognition on major platforms like <span style="font-weight: 600 !important;">Spotify, Apple Music, and YouTube.</span>
+                                    </p>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td align="center" style="padding: 6px 0;">
+                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
+                    <tr>
+                        <td style="padding: 10px;">
+                            <span class="listing" style="margin-top: 18px;">
+                                <span class="list-color" style="display: flex; align-items: start;">
+                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #1B1B1B; margin-bottom: 0px;">🚀 2. Nurturing Growth</span>
+                                </span>
+
+                                <span class="sub-details" style="margin-top: 15px;">
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; margin-left: 5px; line-height: 20px;">
+                                        💡 We don’t just sign artists; we <span style="font-weight: 600 !important;">empower</span> them to grow and thrive in a highly competitive industry.
+                                    </p>
+                                </span>
+
+                                <span class="sub-details" style="margin-top: 15px;">
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; margin-left: 5px; line-height: 20px;">
+                                        <span style="font-weight: 600 !important;">📌 Personalized Development Plans:</span> Every artist gets tailored support, including vocal training, songwriting workshops, and brand strategy sessions.
+                                    </p>
+                                </span>
+
+                                <span class="sub-details">
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; margin-left: 5px; line-height: 20px;">
+                                        🎛 Cutting-Edge Resources: Our state-of-the-art recording studios and production teams ensure world-class music production.
+                                    </p>
+                                </span>
+
+                                <span class="sub-details">
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; margin-left: 5px; line-height: 20px;">
+                                        <span style="font-weight: 600 !important;">🎓 Mentorship & Guidance:</span> We connect our artists with industry veterans and experts for invaluable insights into navigating the music business successfully.
                                     </p>
                                 </span>
                             </span>
@@ -136,60 +210,30 @@
                         <td style="padding: 10px;">
                             <span class="listing" style="margin-top: 18px;">
                                 <span class="list-color" style="display: flex; align-items: start;">
-
-                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #1B1B1B; margin-bottom: 0px;">💛 Gold Member</span>
+                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #1B1B1B; margin-bottom: 0px;">🌍 3. Promoting Excellence</span>
                                 </span>
 
-                                <span class="sub-details">
-                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
-                                        Get priority access to tickets, exclusive event invites, private group chats with artists, and premium discounts.
+                                <span class="sub-details" style="margin-top: 15px;">
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; margin-left: 5px; line-height: 20px;">
+                                        📣 Our record label is committed to ensuring that our artists’ work reaches the widest possible audience.
                                     </p>
                                 </span>
-                            </span>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
 
-        <tr>
-            <td align="center" style="padding: 6px 0;">
-                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
-                    <tr>
-                        <td style="padding: 10px;">
-                            <span class="listing" style="margin-top: 18px;">
-                                <span class="list-color" style="display: flex; align-items: start;">
-
-                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #1B1B1B; margin-bottom: 0px;">⚪ Silver Member</span>
-                                </span>
-
-                                <span class="sub-details">
-                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
-                                        Early access to ticket sales, merch discounts, and exclusive virtual events.
+                                <span class="sub-details" style="margin-top: 15px;">
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; margin-left: 5px; line-height: 20px;">
+                                        <span style="font-weight: 600 !important;">🌎 Global Reach:</span> Through strategic partnerships with media outlets, streaming platforms, and event organizers, we help our artists gain international visibility.
                                     </p>
                                 </span>
-                            </span>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
 
-
-        <tr>
-            <td align="center" style="padding: 6px 0;">
-                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
-                    <tr>
-                        <td style="padding: 10px;">
-                            <span class="listing" style="margin-top: 18px;">
-                                <span class="list-color" style="display: flex; align-items: start;">
-
-                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #1B1B1B; margin-bottom: 0px;">🥉 Bronze Member</span>
+                                <span class="sub-details">
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; margin-left: 5px; line-height: 20px;">
+                                        <span style="font-weight: 600 !important;">📢 Marketing & Branding:</span> From music video production to social media campaigns, we ensure that an artist’s brand resonates with their audience.
+                                    </p>
                                 </span>
 
                                 <span class="sub-details">
-                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
-                                        Get discounts, fan-only content, and first updates on new releases – perfect for any fan!
+                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; margin-left: 5px; line-height: 20px;">
+                                        <span style="font-weight: 600 !important;">🤝 Collaborative Opportunities:</span> We foster connections with top-tier artists, producers, and creatives to deliver music that stands out.
                                     </p>
                                 </span>
                             </span>
@@ -207,14 +251,7 @@
                         <td style="padding: 10px;">
                             <span class="listing" style="margin-top: 18px;">
                                 <span class="list-color" style="display: flex; align-items: start;">
-
-                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #1B1B1B; margin-bottom: 0px;">🏆 Elite Member</span>
-                                </span>
-
-                                <span class="sub-details">
-                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
-                                        Stand out with signed items, virtual meet-and-greets, and exclusive artist content.
-                                    </p>
+                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: center !important; color: #1B1B1B; margin-top: 15px; margin-bottom: 15px;">🎶 At BIGHIT, we don’t just create music—we create legends! 🚀✨</span>
                                 </span>
                             </span>
                         </td>
@@ -222,40 +259,6 @@
                 </table>
             </td>
         </tr>
-
-        <tr>
-            <td align="center" style="padding: 6px 0;">
-                <table width="100%" cellpadding="0" cellspacing="0" style="background: #fff; border-radius: 10px; overflow: hidden; ">
-                    <tr>
-                        <td style="padding: 10px;">
-                            <span class="listing" style="margin-top: 18px;">
-                                <span class="list-color" style="display: flex; align-items: start;">
-
-                                    <span style="margin-left: 5px; font-size: 14px; font-weight: 600; text-align: left; color: #1B1B1B; margin-bottom: 0px;">📬 Standard Member</span>
-                                </span>
-
-                                <span class="sub-details">
-                                    <p style="color: #1B1B1B;  font-size: 13px; font-weight: 400;  text-align: left; line-height: 23px;">
-                                        Stay connected with early updates on releases, member-only news, and discounts.
-                                    </p>
-                                </span>
-                            </span>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td style="padding: 10px;">
-                            <span style="position: relative; width: 100%; max-height: 260px !important; border-radius: 10px;">
-                                <img src="https://res.cloudinary.com/dpfcntrwo/image/upload/v1738227862/standard_eqvnn1.png" alt="" style="position: relative; width: 100%; max-height: 260px !important; border-radius: 10px; object-fit:cover;  object-position: center;">
-                            </span>
-
-                        </td>
-                    </tr>
-
-                </table>
-            </td>
-        </tr>
-
 
         <tr>
             <td style="padding: 6px 0px;">
