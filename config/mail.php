@@ -2,6 +2,8 @@
 
 return [
 
+    'admin_email' => env('ADMIN_EMAIL', 'alexcyril34@gmail.com'),
+
     /*
     |--------------------------------------------------------------------------
     | Default Mailer
@@ -13,7 +15,8 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'smtp'),
+    // 'default' => env('MAIL_MAILER', 'smtp'),
+    'default' => env('MAIL_MAILER', 'mailgun'),
 
     /*
     |--------------------------------------------------------------------------
@@ -82,9 +85,11 @@ return [
         'failover' => [
             'transport' => 'failover',
             'mailers' => [
+                'mailgun',
                 'smtp',
                 'log',
             ],
+            'retry_after' => 60,  // ← Wait 60 seconds before retrying
         ],
 
         'roundrobin' => [

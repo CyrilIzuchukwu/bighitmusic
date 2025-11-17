@@ -8,6 +8,7 @@ use App\Http\Controllers\VacationController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
