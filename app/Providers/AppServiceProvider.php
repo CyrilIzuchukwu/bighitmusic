@@ -29,7 +29,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('mailCount', $mailCount);
 
 
-            $feedbackCount = VacationForm::count();
+            // $feedbackCount = VacationForm::count();
+            // $view->with('feedbackCount', $feedbackCount);
+
+            $feedbackCount = 0; // Default value
             $view->with('feedbackCount', $feedbackCount);
         });
     }
