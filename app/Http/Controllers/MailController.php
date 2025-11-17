@@ -10,6 +10,8 @@ use App\Models\PrivateVacation;
 use App\Models\RegisteredMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class MailController extends Controller
 {
@@ -95,27 +97,37 @@ class MailController extends Controller
                 'attachment' => 'nullable|file|max:5048',
             ]);
 
-            // Handle the file upload
+            // Handle the file upload using Storage
             $fileName = null;
-            if ($request->hasFile('attachment')) {
-                $fileImage = $request->file('attachment');
-                $fileName = time() . '.' . $fileImage->getClientOriginalExtension();
-                $fileImage->move(public_path('attachments'), $fileName);
-            }
+            $attachmentPath = null;
 
-            if ($fileName) {
-                $file = new FileAttachment();
-                $file->file_name = $fileName;
-                $file->save();
+            if ($request->hasFile('attachment')) {
+                $file = $request->file('attachment');
+
+                // Generate unique filename
+                $fileName = Str::uuid() . '.' . $file->getClientOriginalExtension();
+
+                // Define storage path
+                $storagePath = 'attachments/';
+
+                // Store file in public disk
+                $attachmentPath = $file->storeAs($storagePath, $fileName, 'public');
+
+                // Save to database
+                $fileAttachment = new FileAttachment();
+                $fileAttachment->file_name = $fileName;
+                $fileAttachment->save();
             }
 
             $mail = RegisteredMail::findOrFail($id);
+
             $emailData = [
                 'subject' => $request->subject,
                 'message' => $request->message,
                 'name' => $mail->firstname . ' ' . $mail->lastname,
                 'email' => $mail->email,
-                'attachment' => $request->hasFile('attachment') ? asset('attachments/' . $fileName) : null,
+                'attachment' => $attachmentPath ? Storage::url($attachmentPath) : null,
+                'attachment_full_path' => $attachmentPath ? storage_path('app/public/' . $attachmentPath) : null,
             ];
 
             try {
@@ -128,19 +140,19 @@ class MailController extends Controller
                     Mail::to($emailData['email'])->send(new FormLinkEmail($emailData));
                 }
 
-                return redirect()->route('registered-mails.index')->with('success', 'Email sent successfully to ' . $mail->email);
+                return redirect()->route('registered-mails.index')
+                    ->with('success', 'Email sent successfully to ' . $mail->email);
             } catch (\Exception $e) {
                 // Catch mail-sending errors
-                return redirect()->back()->with('error', $e->getMessage());
-                // dd('Error in sending email:', $e->getMessage());
+                return redirect()->back()
+                    ->with('error', 'Failed to send email: ' . $e->getMessage());
             }
         } catch (\Exception $e) {
             // Catch validation or file upload errors
-            return redirect()->back()->with('error', $e->getMessage());
-            // dd('Error in process:', $e->getMessage());
+            return redirect()->back()
+                ->with('error', 'Error: ' . $e->getMessage());
         }
     }
-
 
 
     public function compose_mail()
@@ -151,7 +163,6 @@ class MailController extends Controller
 
     public function sendEmailProcess2(Request $request)
     {
-
         $request->validate([
             'email' => 'required|email|string',
             'subject' => 'required|string|max:255',
@@ -160,13 +171,15 @@ class MailController extends Controller
             'attachment' => 'nullable|file|max:5048',
         ]);
 
-
-        // Handle the file upload
+        // Handle the file upload using Storage
         $fileName = null;
+        $attachmentPath = null;
+
         if ($request->hasFile('attachment')) {
-            $fileImage = $request->file('attachment');
-            $fileName = time() . '.' . $fileImage->getClientOriginalExtension();
-            $fileImage->move(public_path('attachments'), $fileName);
+            $file = $request->file('attachment');
+            $fileName = Str::uuid() . '.' . $file->getClientOriginalExtension();
+            $storagePath = 'attachments/';
+            $attachmentPath = $file->storeAs($storagePath, $fileName, 'public');
         }
 
         if ($fileName) {
@@ -175,14 +188,14 @@ class MailController extends Controller
             $file->save();
         }
 
-
         $emailData = [
             'subject' => $request->subject,
             'message' => $request->message,
             'name' => $request->firstname . ' ' . $request->lastname,
             'email' => $request->email,
+            'attachment' => $attachmentPath ? Storage::url($attachmentPath) : null,
+            'attachment_full_path' => $attachmentPath ? storage_path('app/public/' . $attachmentPath) : null,
         ];
-
 
         // Determine which email to send based on the selected type
         if ($request->email_type === 'plain') {

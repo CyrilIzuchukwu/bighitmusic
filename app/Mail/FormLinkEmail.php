@@ -7,7 +7,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Attachment;
 
 class FormLinkEmail extends Mailable
 {
@@ -30,9 +32,25 @@ class FormLinkEmail extends Mailable
      */
     public function envelope(): Envelope
     {
-        return new Envelope(
-            subject: ($this->emailData['subject']),
+        $envelope = new Envelope(
+            from: new Address(
+                config('mail.from.address'),      // noreply@mail.ibighitmusic.com
+                config('mail.from.name')          // iBig Hit Music
+            ),
+            subject: $this->emailData['subject'],
         );
+
+        // Add reply-to dynamically
+        if (config('mail.reply_to.address')) {
+            $envelope->replyTo = [
+                new Address(
+                    config('mail.reply_to.address'),  // ibighit@ibighitmusic.com
+                    config('mail.reply_to.name')      // iBig Hit Music Support
+                )
+            ];
+        }
+
+        return $envelope;
     }
 
     /**
@@ -55,6 +73,18 @@ class FormLinkEmail extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        $attachments = [];
+
+        // Check if attachment path exists and file is valid
+        if (
+            !empty($this->emailData['attachment_full_path']) &&
+            file_exists($this->emailData['attachment_full_path'])
+        ) {
+
+            // Use Laravel's Attachment class
+            $attachments[] = Attachment::fromPath($this->emailData['attachment_full_path']);
+        }
+
+        return $attachments;
     }
 }

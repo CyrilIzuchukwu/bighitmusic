@@ -7,7 +7,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Attachment;
 
 class PlainTextEmail extends Mailable
 {
@@ -29,13 +31,30 @@ class PlainTextEmail extends Mailable
     /**
      * Get the message envelope.
      */
+
+
     public function envelope(): Envelope
     {
-        return new Envelope(
-            subject: ($this->emailData['subject']),
+        $envelope = new Envelope(
+            from: new Address(
+                config('mail.from.address'),
+                config('mail.from.name')
+            ),
+            subject: $this->emailData['subject'],
         );
-    }
 
+        // Add reply-to if configured
+        if (config('mail.reply_to.address')) {
+            $envelope->replyTo = [
+                new Address(
+                    config('mail.reply_to.address'),
+                    config('mail.reply_to.name') ?? config('mail.from.name')
+                )
+            ];
+        }
+
+        return $envelope;
+    }
 
 
     /**
@@ -61,7 +80,17 @@ class PlainTextEmail extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        $attachments = [];
+
+        // Add attachment if exists
+        if (
+            !empty($this->emailData['attachment_full_path']) &&
+            file_exists($this->emailData['attachment_full_path'])
+        ) {
+            $attachments[] = Attachment::fromPath($this->emailData['attachment_full_path']);
+        }
+
+        return $attachments;
     }
 
 
