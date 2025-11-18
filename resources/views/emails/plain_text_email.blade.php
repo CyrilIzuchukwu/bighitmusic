@@ -325,9 +325,9 @@
             </td>
         </tr>
 
-        @if ($emailData['attachment'])
+        {{-- @if ($emailData['attachment'])
         <a style="background: #8C3CDF; text-align: center; color: #fff; padding: 8px 20px; text-decoration: none; font-weight: 600; margin-top: 20px;" href="{{ $emailData['attachment'] }}" class="download-button" download>Download Attachment</a>
-        @endif
+        @endif --}}
 
     </table>
 </body>
