@@ -303,7 +303,7 @@
                     <tr>
                         <td>
                             <p style="font-size: 13px; font-weight: 400; line-height: 35px; text-align: left; color: #707070; margin-block: 0px; margin-top: 15px;">
-                                © 2024 Bighit Music. All rights reserved.
+                                © {{ date('Y') }} BTS Records. All rights reserved.
                             </p>
                         </td>
                     </tr>

@@ -13,7 +13,7 @@
                                 <div class="compose-wrapper " id="compose-content">
 
                                     <div class="compose-content">
-                                        <form action="{{ route('sendEmailProcess2') }}" method="POST">
+                                        <form action="{{ route('sendEmailProcess2') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
 
                                             <div class="mb-3">

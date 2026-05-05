@@ -161,6 +161,54 @@ class MailController extends Controller
     }
 
 
+    // public function sendEmailProcess2(Request $request)
+    // {
+    //     $request->validate([
+    //         'email' => 'required|email|string',
+    //         'subject' => 'required|string|max:255',
+    //         'message' => 'required|string',
+    //         'email_type' => 'required|string|in:plain,form',
+    //         'attachment' => 'nullable|file|max:5048',
+    //     ]);
+
+    //     // Handle the file upload using Storage
+    //     $fileName = null;
+    //     $attachmentPath = null;
+
+    //     if ($request->hasFile('attachment')) {
+    //         $file = $request->file('attachment');
+    //         $fileName = Str::uuid() . '.' . $file->getClientOriginalExtension();
+    //         $storagePath = 'attachments/';
+    //         $attachmentPath = $file->storeAs($storagePath, $fileName, 'public');
+    //     }
+
+    //     if ($fileName) {
+    //         $file = new FileAttachment();
+    //         $file->file_name = $fileName;
+    //         $file->save();
+    //     }
+
+    //     $emailData = [
+    //         'subject' => $request->subject,
+    //         'message' => $request->message,
+    //         'name' => $request->firstname . ' ' . $request->lastname,
+    //         'email' => $request->email,
+    //         'attachment' => $attachmentPath ? Storage::url($attachmentPath) : null,
+    //         'attachment_full_path' => $attachmentPath ? storage_path('app/public/' . $attachmentPath) : null,
+    //     ];
+
+    //     // Determine which email to send based on the selected type
+    //     if ($request->email_type === 'plain') {
+    //         // Send plain text email
+    //         Mail::to($emailData['email'])->send(new PlainTextEmail($emailData));
+    //     } elseif ($request->email_type === 'form') {
+    //         // Send form link email
+    //         Mail::to($emailData['email'])->send(new FormLinkEmail($emailData));
+    //     }
+
+    //     return redirect()->route('registered-mails.index')->with('success', 'Email sent successfully');
+    // }
+
     public function sendEmailProcess2(Request $request)
     {
         $request->validate([
@@ -180,12 +228,11 @@ class MailController extends Controller
             $fileName = Str::uuid() . '.' . $file->getClientOriginalExtension();
             $storagePath = 'attachments/';
             $attachmentPath = $file->storeAs($storagePath, $fileName, 'public');
-        }
 
-        if ($fileName) {
-            $file = new FileAttachment();
-            $file->file_name = $fileName;
-            $file->save();
+            // Save to database
+            $fileAttachment = new FileAttachment();
+            $fileAttachment->file_name = $fileName;
+            $fileAttachment->save();
         }
 
         $emailData = [
@@ -197,15 +244,21 @@ class MailController extends Controller
             'attachment_full_path' => $attachmentPath ? storage_path('app/public/' . $attachmentPath) : null,
         ];
 
-        // Determine which email to send based on the selected type
-        if ($request->email_type === 'plain') {
-            // Send plain text email
-            Mail::to($emailData['email'])->send(new PlainTextEmail($emailData));
-        } elseif ($request->email_type === 'form') {
-            // Send form link email
-            Mail::to($emailData['email'])->send(new FormLinkEmail($emailData));
-        }
+        try {
+            // Determine which email to send based on the selected type
+            if ($request->email_type === 'plain') {
+                // Send plain text email
+                Mail::to($emailData['email'])->send(new PlainTextEmail($emailData));
+            } elseif ($request->email_type === 'form') {
+                // Send form link email
+                Mail::to($emailData['email'])->send(new FormLinkEmail($emailData));
+            }
 
-        return redirect()->route('registered-mails.index')->with('success', 'Email sent successfully');
+            return redirect()->route('registered-mails.index')
+                ->with('success', 'Email sent successfully to ' . $request->email);
+        } catch (\Exception $e) {
+            return redirect()->back()
+                ->with('error', 'Failed to send email: ' . $e->getMessage());
+        }
     }
 }
