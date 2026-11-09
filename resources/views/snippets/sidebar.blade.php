@@ -17,6 +17,11 @@
                             <span class="nav-text">Registered Mails</span>
                         </a>
                     </li>
+                    <li><a href="{{ route('signing.admin.index') }}" aria-expanded="false">
+                            <i class="material-icons">draw</i>
+                            <span class="nav-text">Documents</span>
+                        </a>
+                    </li>
                     <li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
                             <i class="material-icons"> app_registration </i>
                             <span class="nav-text">Mails</span>

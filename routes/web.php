@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\VacationController;
+use App\Http\Controllers\SigningDocumentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -95,6 +96,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('logout', [HomeController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('admin/signing-documents', [SigningDocumentController::class, 'index'])->name('signing.admin.index');
+    Route::get('admin/signing-documents/create', [SigningDocumentController::class, 'create'])->name('signing.admin.create');
+    Route::post('admin/signing-documents', [SigningDocumentController::class, 'store'])->name('signing.admin.store');
+    Route::get('admin/signing-documents/{document}', [SigningDocumentController::class, 'adminShow'])->name('signing.admin.show');
+    Route::post('admin/signing-documents/{document}/send', [SigningDocumentController::class, 'send'])->name('signing.admin.send');
+    Route::put('admin/signing-documents/{document}/settings', [SigningDocumentController::class, 'settings'])->name('signing.admin.settings');
+    Route::patch('admin/signing-documents/{document}/position', [SigningDocumentController::class, 'position'])->name('signing.admin.position');
+    Route::post('admin/signing-documents/{document}/revoke', [SigningDocumentController::class, 'revoke'])->name('signing.admin.revoke');
+    Route::post('admin/signing-documents/{document}/restore', [SigningDocumentController::class, 'restore'])->name('signing.admin.restore');
+    Route::get('admin/signing-documents/{document}/pdf', [SigningDocumentController::class, 'adminPdf'])->name('signing.admin.pdf');
     Route::get('admin/dashboard', [AdminController::class, 'admin_dashboard'])->name('admin_dashboard');
 
     // profile setting
@@ -136,3 +147,8 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
     Route::get('admin/feedback-details/{id}', [VacationController::class, 'feedback_details'])->name('feedback_details');
 });
+
+Route::get('sign/{token}', [SigningDocumentController::class, 'show'])->name('signing.show');
+Route::post('sign/{token}/unlock', [SigningDocumentController::class, 'unlock'])->middleware('throttle:5,1')->name('signing.unlock');
+Route::get('sign/{token}/pdf', [SigningDocumentController::class, 'pdf'])->name('signing.pdf');
+Route::post('sign/{token}', [SigningDocumentController::class, 'sign'])->name('signing.sign');

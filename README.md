@@ -1,5 +1,17 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
+## Protected document invitations
+
+The admin sidebar has a separate **Protected Documents** area. An admin uploads one PDF for one signer, writes an email subject and body, and sets an unlock limit, expiry, and signature position on the last page. The admin may enter a unique six-digit access code or leave the field blank for the app to generate one. The generated code is shown on the admin detail page. After preparing the document, the admin page renders the PDF and marks the signature area. Drag the marker before sending; its new position saves automatically and is locked after the invitation is sent. **Send invitation** generates a QR image inside the system and emails it with the six-digit code. The recipient enters that code using six separate digit boxes. The PDF and raw URL are not included as email attachments or visible text.
+
+The QR URL is built from `config('app.url')`, which reads `APP_URL` in `.env`. Set `APP_URL=https://ibighitmusic.com` on the live server. A phone scanning a QR code during local development must be able to reach the local `APP_URL` over your network; `localhost` on the phone points to the phone itself.
+
+Before using this feature, install the added Composer packages (`composer update endroid/qr-code setasign/fpdf setasign/fpdi --with-all-dependencies`) with PHP 8.1+ and the GD extension, then run `php artisan migrate`. Keep `APP_KEY` stable because it encrypts the stored PDFs and invitation secrets. Configure the mail transport before sending. Existing mail features remain separate.
+
+Document creation and its initial activity record are saved in one database transaction. The encrypted PDF is stored just before that transaction and removed if the transaction fails. A unique database index prevents two invitations from sharing an access code, including when two admins submit at the same time. Generated codes retry on a collision. Existing invitations made before the six-digit rule may need their codes changed in Access settings before they can be sent or unlocked.
+
+The recipient viewer does not offer a download control, but any content displayed on a recipient's device can still be copied by screenshots or developer tools. This is a controlled viewing workflow, not a technical guarantee against copying. The signed PDF is stored privately for admin review. PDF import support should be checked against the types of PDFs you will upload; some PDF structures may require a different PDF processing library.
+
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
