@@ -106,6 +106,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('admin/signing-documents/{document}/revoke', [SigningDocumentController::class, 'revoke'])->name('signing.admin.revoke');
     Route::post('admin/signing-documents/{document}/restore', [SigningDocumentController::class, 'restore'])->name('signing.admin.restore');
     Route::get('admin/signing-documents/{document}/pdf', [SigningDocumentController::class, 'adminPdf'])->name('signing.admin.pdf');
+    Route::get('admin/signing-documents/{document}/download', [SigningDocumentController::class, 'adminDownloadSigned'])->name('signing.admin.download');
     Route::get('admin/dashboard', [AdminController::class, 'admin_dashboard'])->name('admin_dashboard');
 
     // profile setting

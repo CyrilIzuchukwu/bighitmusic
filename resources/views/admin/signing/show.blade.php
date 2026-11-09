@@ -30,7 +30,11 @@
                 <h3 id="preview-heading">{{ $document->signed_at ? 'View signed document' : 'Review signature placement' }}</h3>
                 @if(!$document->signed_at)<p>{{ $document->sent_at ? 'The signature position is locked because this invitation has been sent.' : 'Drag the purple signature area on the last page. Its new position saves automatically.' }}</p>@endif
             </div>
-            @if(!$document->signed_at)<button type="button" class="signing-outline-button" id="jump-to-signature">Jump to signature</button>@endif
+            @if($document->signed_at)
+                <a class="signing-primary-button signing-download-button" href="{{ route('signing.admin.download', $document) }}">Download signed PDF</a>
+            @else
+                <button type="button" class="signing-outline-button" id="jump-to-signature">Jump to signature</button>
+            @endif
         </div>
         @if($document->signed_at)
             <iframe class="signing-final-pdf" title="Signed document" src="{{ route('signing.admin.pdf', $document) }}#toolbar=0"></iframe>
@@ -112,6 +116,7 @@
     .signing-outline-button,.signing-primary-button,.signing-danger-button,.signing-text-button{border-radius:9px;padding:11px 17px;font:inherit;font-weight:700;cursor:pointer;white-space:nowrap}
     .signing-outline-button{border:1px solid #8e66e5;background:#fff;color:#7144d3}.signing-outline-button:hover{background:#f6f0ff}
     .signing-primary-button{border:0;background:#8c5bf1;color:#fff}.signing-primary-button:hover{background:#7546db}.signing-primary-button:disabled{background:#d7cbed;cursor:not-allowed}
+    .signing-download-button{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}.signing-download-button:hover{color:#fff;text-decoration:none}
     .signing-danger-button{border:1px solid #cf5368;background:#fff;color:#b4344e}.signing-danger-button:hover{background:#fff0f2}
     .signing-text-button{padding:3px 0;border:0;background:transparent;color:#7144d3}
     .signing-preview-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px}.signing-position-state{display:inline-flex;align-items:center;border-radius:30px;padding:7px 12px;background:#eef7f1;color:#207347;font-size:13px;font-weight:700}.signing-position-state.is-saving{background:#f6f1e6;color:#8d6b18}.signing-position-state.is-error{background:#fff0f0;color:#a32f40}

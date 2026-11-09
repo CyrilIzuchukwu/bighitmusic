@@ -222,6 +222,16 @@ class SigningDocumentController extends Controller
         return $this->pdfResponse($path);
     }
 
+    public function adminDownloadSigned(SigningDocument $document)
+    {
+        abort_unless($document->signed_at && $document->signed_file_path, 404);
+
+        return $this->pdfResponse(
+            $document->signed_file_path,
+            'attachment; filename="signed-document-' . $document->id . '.pdf"'
+        );
+    }
+
     public function show(Request $request, string $token)
     {
         $document = $this->findToken($token);
@@ -329,12 +339,12 @@ class SigningDocumentController extends Controller
             && ($grant['version'] ?? 0) === $document->access_version;
     }
 
-    private function pdfResponse(string $path)
+    private function pdfResponse(string $path, string $disposition = 'inline; filename="document.pdf"')
     {
         $pdf = Crypt::decryptString(Storage::disk('local')->get($path));
         return response($pdf, 200, [
             'Content-Type' => 'application/pdf',
-            'Content-Disposition' => 'inline; filename="document.pdf"',
+            'Content-Disposition' => $disposition,
             'Cache-Control' => 'private, no-store, no-cache, must-revalidate',
             'Pragma' => 'no-cache',
             'X-Content-Type-Options' => 'nosniff',
